@@ -1,7 +1,6 @@
 body {
     align-items: center;
     margin-top: 10px;
-    margin-bottom: 30px;
 }
 
 .btn{
@@ -22,9 +21,9 @@ label {
 }
 
 #okeAlert{
-    visibility: hidden;
+    display: none;
 }
 
 #errorAlert{
-    visibility: hidden;
+    display: none;
 }
