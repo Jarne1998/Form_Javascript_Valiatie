@@ -52,7 +52,7 @@ function valideerNaam(naam) {
 
 // Gebruikersnaam verificatie
 function valideerGebruikersnaam(gebruikersnaam) {
-  var regName = /[a-zA-Z]+/;
+  var regName = /^[a-zA-Z]+/;
   var gebruikersnaam = document.getElementById("inputGebruikersnaam").value;
   if (gebruikersnaam.length == 0 && !regName.test(gebruikersnaam)) {
     errorArray.push("Het veld gebruikersnaam zijn verplicht.");
@@ -80,6 +80,7 @@ function valideerWachtwoord(wachtwoord) {
     errorArray.push("Ingegeven wachtwoordvelden komen niet overeen.");
     return false;
   }
+  return true;
 }
 
 // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
@@ -88,7 +89,6 @@ function isGeldigEmailAdres(email) {
   return reg.test(email);
 }
 
-// Email validatie
 function valideerEmail() {
   var emailaddress = document.getElementById("inputMail").value;
 
@@ -119,13 +119,25 @@ function valideer(event) {
   var gebruikerOK = valideerGebruikersnaam();
   var wachtwoordOK = valideerWachtwoord();
   var pcOK = checkPC();
-  if (
-    !(emailOk || voornaamOK || naamOK || gebruikerOK || wachtwoordOK || pcOK)
-  ) {
-    alert("iets is fout");
+  var errorbox = document.getElementById("errorAlert");
+  var okbox = document.getElementById("okeAlert");
+  var radioBtn = document.getElementsByName("customRadio");
+
+  if (emailOk && voornaamOK && naamOK && gebruikerOK && wachtwoordOK && pcOK) {
+    var rb = [].filter.call(radioBtn, function (e) {
+      return e.checked;
+    })[0];
+    document.getElementById("betaling").innerHTML =
+      "Je betalingswijze is " + rb.nextElementSibling.innerText;
+    okbox.style.display = "block";
+  } else {
+    //https://stackoverflow.com/questions/36696472/how-to-output-a-javascript-array-to-html-links
+    for (i = 0; i < errorArray.length; i++) {
+      debugger;
+      document.getElementById("foutmelding").innerHTML +=
+        "<li>" + errorArray[i];
+    }
+    errorbox.style.display = "block";
     event.preventDefault();
   }
 }
-
-console.log(errorArray);
-//document.getElementById("error").innerHTML = errorArray.toString();

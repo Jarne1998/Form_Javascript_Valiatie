@@ -24,19 +24,23 @@
 
       <div class="container">
         <div class="row d-flex flex-row-reverse">
-          <div class="col-4" id="error">
-            <div class="alert alert-success" role="alert">
-              <h4>Goed gedaan!</h4>
-              <p>Awww yeah, je werd geregistreerd</p>
+          <div class="col-4">
+            <div id="okeAlert">
+              <div class="alert alert-success" role="alert">
+                <h4>Goed gedaan!</h4>
+                <p>Awww yeah, je werd geregistreerd</p>
+              </div>
+        
+              <div class="alert alert-info" role="alert">
+                <h4>Betalingswijze</h4>
+              </div>
             </div>
       
-            <div class="alert alert-info" role="alert">
-              <h4>Betalingswijze</h4>
-            </div>
-      
-            <div class="alert alert-danger" role="alert">
-              <h4>Yikes, errors..</h4>
-              <p id="error">.</p>
+            <div id="errorAlert">
+              <div class="alert alert-danger" role="alert">
+                <h4>Yikes, errors..</h4>
+                <p id="foutmelding"></p>
+              </div>
             </div>
           </div>
 
@@ -92,20 +96,34 @@
                   <label for="inputLand">Land</label>
                   <select id="inputLand" class="form-control">
                     <option selected>Kies een land</option>
-                    <option>...</option>
+                    <option>België</option>
+                    <option>Nederland</option>
+                    <option>Duitsland</option>
+                    <option>Frankrijk</option>
                   </select>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputProvincie">Provincie</label>
                   <select id="inputProvincie" class="form-control">
                     <option selected>Kies een provincie</option>
-                    <option>...</option>
+                    <option>Antwerpen</option>
+                    <option>Limburg</option>
+                    <option>Brussel</option>
+                    <option>Namen</option>
+                    <option>Oost-Vlaanderen</option>
+                    <option>West-Vlaanderen</option>
+                    <option>Parijs</option>
+                    <option>Lille</option>
+                    <option>Amsterdam</option>
+                    <option>Echt</option>
+                    <option>Keulen</option>
+                    <option>Berlijn</option>
+                    <option>Aken</option>
                   </select>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputPostcode">Postcode</label>
                   <input id="inputPostcode" class="form-control" type="number">
-                  </select>
                 </div>
                 <div class="form-group">
                   <h3>Hou me op de hoogte</h3>

@@ -21,3 +21,10 @@ label {
     margin-right: 20%;
 }
 
+#okeAlert{
+    visibility: hidden;
+}
+
+#errorAlert{
+    visibility: hidden;
+}
