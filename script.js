@@ -14,17 +14,12 @@ var postcode = document.getElementById("inputPostcode");
 var errorElement = document.getElementById("error");
 var formSubmit = document.getElementById("submitbtn");
 
+// Array
 const errorArray = [];
 
 function init() {
   formSubmit.addEventListener("click", valideer, false);
 }
-
-// function checkEmptyField(veld, melding) {
-//   if (veld.length.trim() == "") {
-//     return;
-//   }
-// }
 
 // Voornaam verificatie
 function valideerVoornaam(voornaam) {
@@ -52,7 +47,7 @@ function valideerNaam(naam) {
 
 // Gebruikersnaam verificatie
 function valideerGebruikersnaam(gebruikersnaam) {
-  var regName = /^[a-zA-Z]+/;
+  var regName= /^[a-zA-Z0-9]+$/;
   var gebruikersnaam = document.getElementById("inputGebruikersnaam").value;
   if (gebruikersnaam.length == 0 && !regName.test(gebruikersnaam)) {
     errorArray.push("Het veld gebruikersnaam zijn verplicht.");
@@ -89,6 +84,7 @@ function isGeldigEmailAdres(email) {
   return reg.test(email);
 }
 
+// Email valideren
 function valideerEmail() {
   var emailaddress = document.getElementById("inputMail").value;
 
@@ -100,6 +96,7 @@ function valideerEmail() {
   return true;
 }
 
+// Postcode validatie
 function checkPC(pc) {
   if (postcode == "") {
     errorArray.push("Het veld postcode is verplicht.");
@@ -112,6 +109,7 @@ function checkPC(pc) {
   return true;
 }
 
+// Valideren formulier
 function valideer(event) {
   var emailOk = valideerEmail();
   var voornaamOK = valideerVoornaam();
